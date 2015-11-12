@@ -26,7 +26,8 @@ RUN apt-get update -qq && DEBIAN_FRONTEND=noninteractive apt-get -yqq install --
     echo "ServerName localhost" | tee /etc/apache2/conf.d/fqdn
 
 # extra stuff
-RUN apt-get update && apt-get install php5-mysql php5-memcache php-pear nano -y && pear install Net_IDNA2$
+RUN apt-get update && apt-get install php5-mysql php5-memcache php-pear nano -y
+RUN pear install Net_IDNA2-0.1.1
 
 #clean up
 RUN apt-get autoremove -y && apt-get autoclean
